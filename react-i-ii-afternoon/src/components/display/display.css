@@ -1,0 +1,54 @@
+.display {
+    background-color: white;
+    height: 400px;
+}
+
+.index {
+    float: right;
+    margin-right: 10px;
+}
+
+.info-container {
+    padding: 20px 60px;
+}
+
+.index,
+.name,
+.description,
+.value {
+    margin-block-start: 5px;
+    margin-block-end: 5px;
+    color: rgb(39, 39, 39);
+}
+
+.name,
+.index {
+    font-size: 25px;
+    font-weight: 900;
+}
+
+.name {
+    border-bottom: 2px solid skyblue;
+    width: fit-content;
+}
+
+.description {
+    font-size: 18px;
+    font-weight: 900;
+}
+
+.value,
+.movie-list {
+    font-weight: normal;
+}
+
+.value {
+    display: inline-block;
+    margin-left: 5px;
+}
+
+.movie-list {
+    margin-top: 5px;
+    line-height: 25px;
+    margin-left: 40px;
+}

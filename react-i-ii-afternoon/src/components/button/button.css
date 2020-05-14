@@ -1,0 +1,30 @@
+.header-nav {
+    background: none;
+    border: none;
+    padding: 40px;
+
+    font-size: 18px;
+    font-weight: 900;
+    color: rgb(39, 39, 39);
+}
+
+.nav-button,
+.modify-button {
+    color: white;
+    border: none;
+}
+
+.nav-button {
+    background-color: transparent;
+    font-size: 18px;
+    font-weight: 900;
+}
+
+.modify-button {
+    background-color: skyblue;
+    font-size: 12px;
+    font-weight: 900;
+    margin: 5px;
+    padding: 5px;
+    border-radius: 12px;
+}

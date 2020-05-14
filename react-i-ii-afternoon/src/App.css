@@ -1,0 +1,36 @@
+* {
+    box-sizing: border-box;
+    font-family: sans-serif;
+    letter-spacing: .5px;
+}
+
+.App {
+    min-width: 800px;
+    max-width: 1050px;
+    margin: 50px auto;
+}
+
+header {
+    height: 100px;
+    background-color: skyblue;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+
+main {
+    background: rgb(39, 39, 39);
+    padding: 100px;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-between;
+    margin: 5px;
+}
+
+button {
+    cursor: pointer;
+}
+
