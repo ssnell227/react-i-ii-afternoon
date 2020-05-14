@@ -2,15 +2,15 @@ import React from 'react'
 import './display.css'
 
 function Display(props) {
-    let current = props.data.find(item => item.id === props.current)
-    console.log(current)
+    let current = props.data.find((item, index) => index === props.current)
 
     let movies = current.favoriteMovies.map((movie, index) => {
         return <li key={`movie-${index}`}>{movie}</li>
     })
+    
     return (
         <div className='display'>
-            <p className='index'>{current.id}/25</p>
+            <p className='index'>{current.id}/{props.data.length}</p>
             <div className='info-container'>
                 <p className='name'>{`${current.name.first} ${current.name.last}`}</p>
                 <br></br>
