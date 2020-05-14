@@ -24,29 +24,33 @@ class Input extends Component {
     }
 
     updateInputs(e) {
-            this.setState({
-                [e.target.name]: e.target.value
-            })
+        this.setState({
+            [e.target.name]: e.target.value
+        })
     }
 
-    handleSubmit () {
+    handleSubmit() {
         let state = this.state
         let personObj = {
-            id: this.props.dataLength +1,
+            id: this.props.dataLength + 1,
             name: { first: state.firstName, last: state.lastName },
             city: state.city,
             country: state.country,
             employer: state.employer,
             title: state.title,
             favoriteMovies: state.favoriteMovies
-          }
-
-          this.props.addPerson(personObj)
+        }
+        if (personObj.name.first !== '') {
+            this.props.addPerson(personObj)
+            this.props.toggleModal()
+        } else {
+            window.alert('Enter a name')
+        }
 
     }
 
     addMovie() {
-        let {favoriteMovies} = this.state.favoriteMovies
+        let { favoriteMovies } = this.state.favoriteMovies
         favoriteMovies.push(this.state.inputMovies)
         this.setState(favoriteMovies)
     }
@@ -55,47 +59,56 @@ class Input extends Component {
         return (
             <div className='input'>
                 <form>
-                    <div>
-                    <label>First name: </label>
-                    <input value={this.state.firstName} onChange={this.updateInputs} name='firstName'></input>
+                    <div className='meta-container'>
+                        <div className='input-item'>
+                            <label>First name: </label>
+                            <input value={this.state.firstName} onChange={this.updateInputs} name='firstName'></input>
+                        </div>
+
+                        <div className='input-item'>
+                            <label>Last name: </label>
+                            <input onChange={this.updateInputs} name='lastName'></input>
+                        </div>
                     </div>
 
-                    <div>
-                    <label>Last name: </label>
-                    <input onChange={this.updateInputs} name='lastName'></input>
+                    <div className='meta-container'>
+                        <div className='input-item'>
+                            <label>City: </label>
+                            <input onChange={this.updateInputs} name='city'></input>
+                        </div>
+
+                        <div className='input-item'>
+                            <label>Country: </label>
+                            <input onChange={this.updateInputs} name='country'></input>
+                        </div>
                     </div>
 
-                    <div>
-                    <label>City: </label>
-                    <input onChange={this.updateInputs} name='city'></input>
+                    <div className='meta-container'>
+                        <div className='input-item'>
+                            <label>Employer:</label>
+                            <input onChange={this.updateInputs} name='employer'></input>
+                        </div>
+
+                        <div className='input-item'>
+                            <label>Title: </label>
+                            <input onChange={this.updateInputs} name='title'></input>
+                        </div>
                     </div>
 
-                    <div>
-                    <label>Country: </label>
-                    <input onChange={this.updateInputs} name='country'></input>
-                    </div>
-
-                    <div>
-                    <label>Employer:</label>
-                    <input onChange={this.updateInputs} name='employer'></input>
-                    </div>
-
-                    <div>
-                    <label>Title: </label>
-                    <input onChange={this.updateInputs} name='title'></input>
-                    </div>
-
-                    <div>
-                    <label>Favorite movies: {this.state.favoriteMovies}</label>
-                    <Button onClick={this.addMovie} name='Add a movie' />
-                    <input onChange={this.updateInputs} name='inputMovies'></input>
-                    </div>
-
-                    <div>
-                    <Button runFunction={this.handleSubmit} name='Submit' />
-                    <Button runFunction={this.toggleModal} name='Cancel' />
+                    <div className='meta-container'>
+                        <label>Favorite movies: </label>
+                        <p>{this.state.favoriteMovies}</p>
+                        <div className='input-item'>
+                            <Button onClick={this.addMovie} name='Add a movie' />
+                            <input onChange={this.updateInputs} name='inputMovies'></input>
+                        </div>
                     </div>
                 </form>
+
+                <div className='input-item'>
+                    <Button runFunction={this.handleSubmit} name='Submit' />
+                    <Button runFunction={this.props.toggleModal} name='Cancel' />
+                </div>
             </div>
         )
     }
