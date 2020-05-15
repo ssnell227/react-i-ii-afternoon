@@ -55,11 +55,11 @@ class App extends Component {
     this.setState({
       data
     })
-    console.log(obj)
   }
 
-  toggleModal() {
+  toggleModal(e) {
     let modal = this.state.modal === '' ? 'on' : ''
+
     this.setState({
       modal
     })
@@ -84,8 +84,8 @@ class App extends Component {
             <Button name='Next >' class='nav-button' runFunction={this.switchPerson} />
           </div>
         </main>
-        {/* toggle modal function needs built, check if ID works */}
-        <div className={`modal ${this.state.modal}`}>
+        <div onClick={this.toggleModal} className={`opaque-background ${this.state.modal}`}></div>
+        <div  className={`modal ${this.state.modal}`}>
           <Input dataLength={this.state.data.length} addPerson={this.addPerson} toggleModal={this.toggleModal} />
         </div>
       </div>

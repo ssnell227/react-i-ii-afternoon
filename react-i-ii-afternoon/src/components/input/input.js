@@ -50,9 +50,10 @@ class Input extends Component {
     }
 
     addMovie() {
-        let { favoriteMovies } = this.state.favoriteMovies
+        let favoriteMovies = [...this.state.favoriteMovies]
         favoriteMovies.push(this.state.inputMovies)
-        this.setState(favoriteMovies)
+        console.log(favoriteMovies)
+        this.setState({ favoriteMovies })
     }
 
     render() {
@@ -99,7 +100,7 @@ class Input extends Component {
                         <label>Favorite movies: </label>
                         <p>{this.state.favoriteMovies}</p>
                         <div className='input-item'>
-                            <Button onClick={this.addMovie} name='Add a movie' />
+                            <Button runFunction={this.addMovie} name='Add a movie' />
                             <input onChange={this.updateInputs} name='inputMovies'></input>
                         </div>
                     </div>
